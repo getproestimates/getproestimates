@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://getproestimates.com/sitemap-main.xml</loc><lastmod>2026-03-03</lastmod></sitemap>
-  <sitemap><loc>https://getproestimates.com/sitemap-services.xml</loc><lastmod>2026-03-03</lastmod></sitemap>
-  <sitemap><loc>https://getproestimates.com/sitemap-locations.xml</loc><lastmod>2026-03-03</lastmod></sitemap>
-  <sitemap><loc>https://getproestimates.com/sitemap-blog.xml</loc><lastmod>2026-03-03</lastmod></sitemap>
+  <sitemap><loc>https://getproestimates.com/sitemap-main.xml</loc></sitemap>
+  <sitemap><loc>https://getproestimates.com/sitemap-services.xml</loc></sitemap>
+  <sitemap><loc>https://getproestimates.com/sitemap-locations.xml</loc></sitemap>
+  <sitemap><loc>https://getproestimates.com/sitemap-suburbs.xml</loc></sitemap>
+  <sitemap><loc>https://getproestimates.com/sitemap-contractors.xml</loc></sitemap>
+  <sitemap><loc>https://getproestimates.com/sitemap-blog.xml</loc></sitemap>
 </sitemapindex>
