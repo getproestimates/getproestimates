@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://getproestimates.com/sitemap.xml
-Sitemap: https://getproestimates.com/sitemap-main.xml
-Sitemap: https://getproestimates.com/sitemap-services.xml
-Sitemap: https://getproestimates.com/sitemap-locations.xml
-Sitemap: https://getproestimates.com/sitemap-blog.xml
