@@ -159,27 +159,47 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="/Logo.png" alt="GetPro Estimates"/></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
     <ul class="nav-links" id="navLinks">
-      <li class="has-dd"><a href="/roofing.html">Services ▾</a>
-        <div class="nav-dd"><div class="nav-dd-sect">All Services</div>
-          <a href="/roofing.html">🏠&nbsp; Roofing</a><a href="/hvac.html">❄️&nbsp; HVAC</a>
-          <a href="/plumbing.html">🔧&nbsp; Plumbing</a><a href="/gutters.html">🌧️&nbsp; Gutters</a>
-          <a href="/landscaping.html">🌿&nbsp; Landscaping</a><a href="/siding.html">🏗️&nbsp; Siding</a>
+      <li class="has-dd">
+        <a href="/roofing.html">Services ▾</a>
+        <div class="nav-dd">
+          <div class="nav-dd-inner">
+            <div class="nav-dd-sect">All Services</div>
+            <a href="/roofing.html">🏠&nbsp; Roofing</a>
+            <a href="/hvac.html">❄️&nbsp; HVAC</a>
+            <a href="/plumbing.html">🔧&nbsp; Plumbing</a>
+            <a href="/gutters.html">🌧️&nbsp; Gutters</a>
+            <a href="/landscaping.html">🌿&nbsp; Landscaping</a>
+            <a href="/siding.html">🏗️&nbsp; Siding</a>
+          </div>
         </div>
       </li>
-      <li class="has-dd"><a href="/#cities">Cities ▾</a>
-        <div class="nav-dd nav-cities-dd"><div class="nav-dd-sect">Top Cities</div>
-          <a href="/houston-tx.html">🌊&nbsp; Houston, TX</a><a href="/dallas-tx.html">🏙️&nbsp; Dallas, TX</a>
-          <a href="/phoenix-az.html">☀️&nbsp; Phoenix, AZ</a><a href="/denver-co.html">⛷️&nbsp; Denver, CO</a>
-          <a href="/atlanta-ga.html">🌳&nbsp; Atlanta, GA</a><a href="/austin-tx.html">🎸&nbsp; Austin, TX</a>
-          <a href="/#cities" style="color:var(--teal);font-weight:700;border-top:1px solid var(--linen);margin-top:6px;padding-top:10px">View all 28 →</a>
+      <li class="has-dd">
+        <a href="#cities">Cities ▾</a>
+        <div class="nav-dd nav-cities-dd">
+          <div class="nav-dd-inner">
+            <div class="nav-dd-sect">Top Cities</div>
+            <a href="/houston-tx.html">Houston, TX</a>
+            <a href="/dallas-tx.html">Dallas, TX</a>
+            <a href="/phoenix-az.html">Phoenix, AZ</a>
+            <a href="/denver-co.html">Denver, CO</a>
+            <a href="/atlanta-ga.html">Atlanta, GA</a>
+            <a href="/austin-tx.html">Austin, TX</a>
+            <a href="/san-antonio-tx.html">San Antonio, TX</a>
+            <a href="/charlotte-nc.html">Charlotte, NC</a>
+            <a href="/nashville-tn.html">Nashville, TN</a>
+            <a href="/tampa-fl.html">Tampa, FL</a>
+            <a href="#cities" style="color:var(--teal);font-weight:700;border-top:1px solid var(--linen);margin-top:6px;padding-top:10px">View all 28 cities →</a>
+          </div>
         </div>
       </li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/for-contractors.html">For Contractors</a></li>
       <li><a href="/about.html">About</a></li>
-      <li><a href="/#estimate" class="nav-cta">Get Free Estimate</a></li>
+      <li><a href="#estimate" class="nav-cta">Get Free Estimate</a></li>
     </ul>
   </div>
 </nav>
@@ -409,11 +429,6 @@ img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{fon
   </div>
   <div class="footer-bot"><p>© 2026 GetPro Estimates — Lead generation service. We do not perform home services directly. All contractors are independently licensed and insured.</p></div>
 </footer>
-<script>
-window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('lifted',window.scrollY>16);},{passive:true});
-document.getElementById('navToggle').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open');});
-const ro=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}})},{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(el=>ro.observe(el));
-</script>
+
 </body>
 </html>

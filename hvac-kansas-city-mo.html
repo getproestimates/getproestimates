@@ -141,7 +141,7 @@ img{max-width:100%;display:block}
 
 /* STEPS */
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;position:relative}
-.steps-grid::before{content:'';position:absolute;top:32px;left:calc(16.67% + 16px);right:calc(16.67% + 16px);height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-dk));z-index:0}
+.steps-grid::before{content:'';position:absolute;top:32px;left:calc(16.67% + 32px);right:calc(16.67% + 32px);height:2px;background:linear-gradient(90deg,var(--teal),var(--teal-dk));z-index:0}
 .step{text-align:center;position:relative;z-index:1}
 .step-num{width:64px;height:64px;background:linear-gradient(135deg,var(--teal),var(--teal-dk));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;margin:0 auto 20px;font-family:'DM Sans',sans-serif;box-shadow:var(--sh-teal);border:4px solid #fff;position:relative}
 .step h3{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:8px}
@@ -284,6 +284,44 @@ img{max-width:100%;display:block}
   .sec{padding:60px 20px}
   .cta-btns{flex-direction:column;align-items:center}
 }
+
+
+/* --- Standardized NAV (injected) --- */
+.nav{position:sticky;top:0;z-index:200;background:rgba(250,250,248,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--linen);transition:box-shadow .3s}
+.nav.lifted{box-shadow:0 4px 40px rgba(13,27,42,0.09)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 36px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-logo img{height:44px;width:auto}
+.nav-links{display:flex;list-style:none;align-items:center;gap:2px}
+.nav-links>li{position:relative}
+.nav-links>li>a{display:block;padding:9px 14px;border-radius:9px;font-size:14px;font-weight:500;color:#5A6A7A;transition:color .15s,background .15s}
+.nav-links>li>a:hover{color:var(--ink);background:rgba(13,27,42,0.05)}
+/* ── DROPDOWN: CSS hover + JS hover-hold ── */
+.nav-dd{
+  position:absolute;top:100%;left:0;
+  padding-top:10px; /* invisible bridge to close gap */
+  pointer-events:none;opacity:0;
+}
+.nav-dd-inner{
+  background:var(--white);border-radius:18px;
+  min-width:220px;box-shadow:var(--sh-lift);
+  border:1px solid var(--linen);padding:8px;
+  transform:translateY(-6px);
+  transition:opacity .18s,transform .18s;
+  opacity:0;
+}
+.nav-links>li.dd-active .nav-dd{pointer-events:auto;opacity:1}
+.nav-links>li.dd-active .nav-dd-inner{opacity:1;transform:translateY(0)}
+.nav-dd-sect{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--smoke);padding:8px 12px 4px;font-family:'DM Sans',sans-serif}
+.nav-dd a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;font-size:13px;font-weight:500;color:#374151;transition:background .12s}
+.nav-dd a:hover{background:var(--canvas-2);color:var(--ink)}
+.nav-cities-dd{min-width:260px}
+.nav-cities-dd .nav-dd-inner{max-height:480px;overflow-y:auto}
+.nav-cta{background:var(--ink)!important;color:var(--white)!important;padding:10px 22px!important;border-radius:50px!important;font-size:13px!important;font-weight:700!important;letter-spacing:.3px;transition:all .2s var(--ease-out)!important}
+.nav-cta:hover{background:var(--teal)!important;box-shadow:var(--sh-teal)!important;transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;padding:6px;color:var(--ink)}
+
+/* ── HERO ─────────────────────────────────────────── */
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "GetPro Estimates — Kansas City, MO", "url": "https://getproestimates.com", "logo": "https://getproestimates.com/Logo.png", "image": "https://getproestimates.com/Logo.png", "description": "Free home service estimates in Kansas City, MO. Licensed local contractors for HVAC.", "address": {"@type": "PostalAddress", "addressLocality": "Kansas City", "addressRegion": "MO", "postalCode": "64101", "addressCountry": "US"}, "areaServed": {"@type": "City", "name": "Kansas City", "containedInPlace": {"@type": "State", "name": "MO"}}, "priceRange": "Free", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312", "bestRating": "5"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "HVAC", "provider": {"@type": "Organization", "name": "GetPro Estimates", "url": "https://getproestimates.com"}, "areaServed": {"@type": "City", "name": "Kansas City"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free HVAC estimate in Kansas City. Average contractor cost: $150–$8,000"}}</script>
@@ -294,55 +332,52 @@ img{max-width:100%;display:block}
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HHGZ4JVJ20');</script>
 </head>
 <body>
-<nav class="nav">
-<div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/Logo.png" alt="GetPro Estimates"/></a>
-  <ul class="nav-menu">
-    <li><a href="/roofing.html">Services ▾</a>
-      <div class="nav-dd"><div class="dd-lbl">All Services</div><a href="/roofing.html"><span class="dd-icon">🏠</span>Roofing</a>
-<a href="/hvac.html"><span class="dd-icon">❄️</span>HVAC</a>
-<a href="/plumbing.html"><span class="dd-icon">🔧</span>Plumbing</a>
-<a href="/gutters.html"><span class="dd-icon">🌧️</span>Gutters</a>
-<a href="/landscaping.html"><span class="dd-icon">🌿</span>Landscaping</a>
-<a href="/siding.html"><span class="dd-icon">🏗️</span>Siding</a></div>
-    </li>
-    <li><a href="/#cities">Cities ▾</a>
-      <div class="nav-dd" style="min-width:280px;max-height:480px;overflow-y:auto"><div class="dd-lbl">All 28 Cities</div><a href="/san-antonio-tx.html"><span class="dd-icon">🌆</span>San Antonio, TX</a>
-<a href="/oklahoma-city-ok.html"><span class="dd-icon">🌪️</span>Oklahoma City, OK</a>
-<a href="/tulsa-ok.html"><span class="dd-icon">🏙️</span>Tulsa, OK</a>
-<a href="/kansas-city-mo.html"><span class="dd-icon">⛈️</span>Kansas City, MO</a>
-<a href="/omaha-ne.html"><span class="dd-icon">🏘️</span>Omaha, NE</a>
-<a href="/charlotte-nc.html"><span class="dd-icon">🌳</span>Charlotte, NC</a>
-<a href="/nashville-tn.html"><span class="dd-icon">🎸</span>Nashville, TN</a>
-<a href="/colorado-springs-co.html"><span class="dd-icon">⛰️</span>Colorado Springs, CO</a>
-<a href="/houston-tx.html"><span class="dd-icon">🌊</span>Houston, TX</a>
-<a href="/dallas-tx.html"><span class="dd-icon">🏙️</span>Dallas, TX</a>
-<a href="/fort-worth-tx.html"><span class="dd-icon">🌪️</span>Fort Worth, TX</a>
-<a href="/austin-tx.html"><span class="dd-icon">🎸</span>Austin, TX</a>
-<a href="/phoenix-az.html"><span class="dd-icon">☀️</span>Phoenix, AZ</a>
-<a href="/denver-co.html"><span class="dd-icon">⛷️</span>Denver, CO</a>
-<a href="/atlanta-ga.html"><span class="dd-icon">🌳</span>Atlanta, GA</a>
-<a href="/tampa-fl.html"><span class="dd-icon">🌀</span>Tampa, FL</a>
-<a href="/orlando-fl.html"><span class="dd-icon">🌴</span>Orlando, FL</a>
-<a href="/jacksonville-fl.html"><span class="dd-icon">🌊</span>Jacksonville, FL</a>
-<a href="/memphis-tn.html"><span class="dd-icon">🎵</span>Memphis, TN</a>
-<a href="/louisville-ky.html"><span class="dd-icon">🏇</span>Louisville, KY</a>
-<a href="/indianapolis-in.html"><span class="dd-icon">🏎️</span>Indianapolis, IN</a>
-<a href="/columbus-oh.html"><span class="dd-icon">🏛️</span>Columbus, OH</a>
-<a href="/minneapolis-mn.html"><span class="dd-icon">❄️</span>Minneapolis, MN</a>
-<a href="/st-louis-mo.html"><span class="dd-icon">🎰</span>St. Louis, MO</a>
-<a href="/wichita-ks.html"><span class="dd-icon">🌾</span>Wichita, KS</a>
-<a href="/albuquerque-nm.html"><span class="dd-icon">🌵</span>Albuquerque, NM</a>
-<a href="/tucson-az.html"><span class="dd-icon">🌵</span>Tucson, AZ</a>
-<a href="/raleigh-nc.html"><span class="dd-icon">🌲</span>Raleigh, NC</a>
-<a href="/#cities" style="color:var(--teal);font-weight:700;padding-top:8px;border-top:1px solid var(--gray-100)">View all 28 cities →</a></div>
-    </li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-    <li><a href="/" class="nav-cta-btn">Free Estimate</a></li>
-  </ul>
-</div>
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/Logo.png" alt="GetPro Estimates"/></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li class="has-dd">
+        <a href="/roofing.html">Services ▾</a>
+        <div class="nav-dd">
+          <div class="nav-dd-inner">
+            <div class="nav-dd-sect">All Services</div>
+            <a href="/roofing.html">🏠&nbsp; Roofing</a>
+            <a href="/hvac.html">❄️&nbsp; HVAC</a>
+            <a href="/plumbing.html">🔧&nbsp; Plumbing</a>
+            <a href="/gutters.html">🌧️&nbsp; Gutters</a>
+            <a href="/landscaping.html">🌿&nbsp; Landscaping</a>
+            <a href="/siding.html">🏗️&nbsp; Siding</a>
+          </div>
+        </div>
+      </li>
+      <li class="has-dd">
+        <a href="#cities">Cities ▾</a>
+        <div class="nav-dd nav-cities-dd">
+          <div class="nav-dd-inner">
+            <div class="nav-dd-sect">Top Cities</div>
+            <a href="/houston-tx.html">Houston, TX</a>
+            <a href="/dallas-tx.html">Dallas, TX</a>
+            <a href="/phoenix-az.html">Phoenix, AZ</a>
+            <a href="/denver-co.html">Denver, CO</a>
+            <a href="/atlanta-ga.html">Atlanta, GA</a>
+            <a href="/austin-tx.html">Austin, TX</a>
+            <a href="/san-antonio-tx.html">San Antonio, TX</a>
+            <a href="/charlotte-nc.html">Charlotte, NC</a>
+            <a href="/nashville-tn.html">Nashville, TN</a>
+            <a href="/tampa-fl.html">Tampa, FL</a>
+            <a href="#cities" style="color:var(--teal);font-weight:700;border-top:1px solid var(--linen);margin-top:6px;padding-top:10px">View all 28 cities →</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/for-contractors.html">For Contractors</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="#estimate" class="nav-cta">Get Free Estimate</a></li>
+    </ul>
+  </div>
 </nav>
 <div class="bc"><div class="bc-inner"><a href="/">Home</a><span class="bc-sep">›</span><a href="/hvac.html">Services</a><span class="bc-sep">›</span><a href="/hvac.html">HVAC</a><span class="bc-sep">›</span><span>HVAC Kansas City</span></div></div>
 <section class="hero">
@@ -604,4 +639,40 @@ img{max-width:100%;display:block}
   <span><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/contact.html">Contact</a></span>
 </div></div>
 </footer>
+<script>
+(function(){
+  const mainNav=document.getElementById('mainNav');
+  if(mainNav){
+    window.addEventListener('scroll',()=>{mainNav.classList.toggle('lifted',window.scrollY>16)},{passive:true});
+  }
+
+  const navToggle=document.getElementById('navToggle');
+  const navLinks=document.getElementById('navLinks');
+  if(navToggle && navLinks){
+    navToggle.addEventListener('click',()=>navLinks.classList.toggle('open'));
+  }
+
+  const ddItems=[...document.querySelectorAll('.has-dd')];
+  ddItems.forEach(li=>{
+    let timer;
+    li.addEventListener('mouseenter',()=>{
+      clearTimeout(timer);
+      ddItems.forEach(x=>x.classList.remove('dd-active'));
+      li.classList.add('dd-active');
+    });
+    li.addEventListener('mouseleave',()=>{
+      timer=setTimeout(()=>li.classList.remove('dd-active'),220);
+    });
+    const dd=li.querySelector('.nav-dd');
+    if(dd){
+      dd.addEventListener('mouseenter',()=>clearTimeout(timer));
+      dd.addEventListener('mouseleave',()=>{timer=setTimeout(()=>li.classList.remove('dd-active'),220);});
+    }
+  });
+
+  document.addEventListener('click',(e)=>{
+    if(!e.target.closest('.has-dd')) ddItems.forEach(x=>x.classList.remove('dd-active'));
+  });
+})();
+</script>
 </body></html>

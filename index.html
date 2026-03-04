@@ -648,62 +648,6 @@ button{font-family:inherit;cursor:pointer}
   <div class="footer-bot"><p>© 2026 GetPro Estimates — Lead generation service. We do not perform home services directly. All contractors are independently licensed and insured. Contractor self-certification required.</p></div>
 </footer>
 
-<script>
-// Nav scroll lift
-window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('lifted',window.scrollY>16)},{passive:true});
 
-// Mobile nav toggle
-document.getElementById('navToggle').addEventListener('click',()=>{
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// Dropdown hover with delay (fixes disappearing menu)
-(function(){
-  var ddItems=document.querySelectorAll('.has-dd');
-  ddItems.forEach(function(li){
-    var timer;
-    li.addEventListener('mouseenter',function(){
-      clearTimeout(timer);
-      ddItems.forEach(function(x){x.classList.remove('dd-active')});
-      li.classList.add('dd-active');
-    });
-    li.addEventListener('mouseleave',function(){
-      timer=setTimeout(function(){li.classList.remove('dd-active')},220);
-    });
-    var dd=li.querySelector('.nav-dd');
-    if(dd){
-      dd.addEventListener('mouseenter',function(){clearTimeout(timer)});
-      dd.addEventListener('mouseleave',function(){timer=setTimeout(function(){li.classList.remove('dd-active')},220)});
-    }
-  });
-})();
-
-// Suburb toggle
-document.getElementById('suburbToggle').addEventListener('click',function(){
-  var list=document.getElementById('suburbList');
-  list.classList.toggle('open');
-  this.textContent=list.classList.contains('open')?'− Hide suburb areas':'+ Browse all suburb service areas';
-});
-
-// Scroll reveals
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.1});
-document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
-
-// Form progress bars
-(function(){
-  var form=document.getElementById('mainForm');
-  if(!form)return;
-  var fields=form.querySelectorAll('input:not([type=hidden]),select,textarea');
-  var bars=[document.getElementById('fp1'),document.getElementById('fp2'),document.getElementById('fp3')];
-  function update(){
-    var filled=0;
-    fields.forEach(function(f){if(f.value.trim())filled++});
-    var pct=filled/fields.length;
-    bars[1].classList.toggle('on',pct>0.33);
-    bars[2].classList.toggle('on',pct>0.66);
-  }
-  fields.forEach(function(f){f.addEventListener('input',update)});
-})();
-</script>
 </body>
 </html>
